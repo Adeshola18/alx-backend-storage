@@ -12,18 +12,17 @@ def logs(nginx):
     reqs = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
     for req in reqs:
         print(f'\tmethod {req}: {nginx.count_documents({"method": req})}')
-        print(f'{nginx.count_documents({"path": "/status"})} status check')
+    print(f'{nginx.count_documents({"path": "/status"})} status check')
 
 
 def conn():
-    ...
+    '''
     Establish a connection with MongoDB.
     '''
     client = MongoClient('mongodb://127.0.0.1:27017')
     nginx = client.logs.nginx
     logs(nginx)
-   
-   
-   
- if __name__ == '__main__':
-     conn()
+
+
+if __name__ == '__main__':
+    conn()
