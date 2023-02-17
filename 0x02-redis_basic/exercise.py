@@ -98,3 +98,4 @@ class Cache:
     def get_int(self, key):
         """get int value from redis"""
         return self.get(key, int)
+    
